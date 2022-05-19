@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ideainyou_storelocator_grid.ideainyou_storelocator_grid_data_source</item>
+        </item>
+    </argument>
+
+
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Store</label>
+            </button>
+        </buttons>
+        <spinner>ideainyou_storelocator_grid</spinner>
+        <deps>
+            <dep>ideainyou_storelocator_grid.ideainyou_storelocator_grid_data_source</dep>
+        </deps>
+    </settings>
+
+
+
+    <dataSource name="ideainyou_storelocator_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+<!--        <aclResource>Magento_Cms::block</aclResource>-->
+        <dataProvider class="IdeaInYou\StoreLocator\Ui\Component\DataProvider" name="ideainyou_storelocator_grid_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+
+
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <columnsControls name="columns_controls"/>
+
+        <filters name="listing_filters">
+            <settings>
+                <templates>
+                    <filters>
+                        <select>
+                            <param name="template" xsi:type="string">ui/grid/filters/elements/ui-select</param>
+                            <param name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</param>
+                        </select>
+                    </filters>
+                </templates>
+            </settings>
+        </filters>
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete selected items?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="*/*/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+            <action name="approve">
+                <settings>
+                    <url path="*/*/massApprove"/>
+                    <type>approve</type>
+                    <label translate="true">Approve</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+
+
+    <columns name="ideainyou_storelocator_grid">
+
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="entity_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="storeName">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">storeName</label>
+            </settings>
+        </column>
+        <column name="description">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">description</label>
+            </settings>
+        </column>
+        <column name="country">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">country</label>
+            </settings>
+        </column>
+        <column name="city">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">city</label>
+            </settings>
+        </column>
+        <column name="state">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">state</label>
+            </settings>
+        </column>
+        <column name="post">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">post</label>
+            </settings>
+        </column>
+        <column name="latitude">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">latitude</label>
+            </settings>
+        </column>
+        <column name="longitude">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">longitude</label>
+            </settings>
+        </column>
+<!--        <column name="product_id" class="IdeaInYou\StoreLocator\Ui\Component\Listing\Column\BlockActions">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>-->
+<!--                    <item name="label" xsi:type="string" translate="true">Product</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </column>-->
+
+
+
+        <column name="is_approved" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">is approved</label>
+            </settings>
+        </column>
+
+
+        <actionsColumn name="actions" class="IdeaInYou\StoreLocator\Ui\Component\Listing\Column\BlockActions">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

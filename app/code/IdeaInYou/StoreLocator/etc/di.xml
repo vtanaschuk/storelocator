@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="IdeaInYou\StoreLocator\Api\StoreLocatorInterface" type="IdeaInYou\StoreLocator\Model\StoreLocator" />
+    <preference for="IdeaInYou\StoreLocator\Api\StoreLocatorRepositoryInterface" type="IdeaInYou\StoreLocator\Model\StoreLocatorRepository" />
+
+
+    <!--    Grid   -->
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ideainyou_storelocator_grid_data_source" xsi:type="string">IdeaInYou\StoreLocator\Model\ResourceModel\StoreLocator\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="IdeaInYou\StoreLocator\Model\ResourceModel\StoreLocator\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ideainyou_storelocator</argument>
+            <argument name="eventPrefix" xsi:type="string">ideainyou_storelocator</argument>
+            <argument name="eventObject" xsi:type="string">ideainyou_storelocator</argument>
+            <argument name="resourceModel" xsi:type="string">IdeaInYou\StoreLocator\Model\ResourceModel\StoreLocator</argument>
+        </arguments>
+    </type>
+
+    <!--    End Grid   -->
+    <type name="IdeaInYou\StoreLocator\Model\StoreLocatorRepository">
+        <plugin name="plugin_ideainyou_storelocator" type="IdeaInYou\StoreLocator\Plugin\StoreLocatorApi"/>
+    </type>
+
+</config>

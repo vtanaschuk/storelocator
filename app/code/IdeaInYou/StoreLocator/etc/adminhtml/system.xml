@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="idea_in_you" translate="label" sortOrder="45">
+            <label>Idea In You</label>
+        </tab>
+        <section id="storeLocator" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Store Locator</label>
+            <tab>idea_in_you</tab>
+            <resource>Magento_Catalog::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="0" showInDefault="1" canRestore="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="google_api" translate="label" type="text" sortOrder="10" showInDefault="1" canRestore="1" showInWebsite="1" showInStore="1">
+                    <label>Google Api</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
