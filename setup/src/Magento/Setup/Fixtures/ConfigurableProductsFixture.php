@@ -445,7 +445,7 @@ class ConfigurableProductsFixture extends Fixture
     /**
      * Get default attribute sets with attributes.
      *
-     * @see Data/attributeSets.xml
+     * @see config/attributeSets.xml
      *
      * @return array
      */

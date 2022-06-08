@@ -7,11 +7,12 @@
         <column xsi:type="varchar" name="storeName" nullable="false" length="255" comment="Store Name"/>
         <column xsi:type="varchar" name="description" nullable="false" length="255" comment="Store Description"/>
         <column xsi:type="varchar" name="country" nullable="false" length="255" comment="Store Country"/>
-        <column xsi:type="varchar" name="city" nullable="false" length="255" comment="Store City"/>
         <column xsi:type="varchar" name="state" nullable="false" length="255" comment="Store State"/>
+        <column xsi:type="varchar" name="city" nullable="false" length="255" comment="Store City"/>
+        <column xsi:type="varchar" name="address" nullable="false" length="255" comment="Store Address"/>
         <column xsi:type="int" name="post" nullable="false"  comment="Store Post Index"/>
-        <column xsi:type="int" name="latitude" nullable="false" comment="Store Latitude"/>
-        <column xsi:type="int" name="longitude" nullable="false" comment="Store Longitude"/>
+        <column xsi:type="varchar" name="latitude" nullable="false" comment="Store Latitude"/>
+        <column xsi:type="varchar" name="longitude" nullable="false" comment="Store Longitude"/>
 
 
         <column xsi:type="smallint" name="is_approved" unsigned="false" nullable="false" identity="false"

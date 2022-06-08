@@ -24,14 +24,14 @@ class PlaceOrder implements \Magento\Framework\Event\ObserverInterface
         /** @var Order $order $order */
         $order = $observer->getData('order');
 
-        $store = $this->storeLocatorFactory->create()
-            ->setStoreDescription('norm market')
-            ->setStoreCountry('Ukraine')
-            ->setStoreState('Bukovina')
-            ->setStoreCity('Zastavna')
-            ->setStorePost('58000');
+//        $store = $this->storeLocatorFactory->create()
+//            ->setStoreDescription('norm market')
+//            ->setStoreCountry('Ukraine')
+//            ->setStoreState('Bukovina')
+//            ->setStoreCity('Zastavna')
+//            ->setStorePost('58000');
 
-        $this->storeLocatorRepository->save($store);
+//        $this->storeLocatorRepository->save($store);
 
         return $this;
     }

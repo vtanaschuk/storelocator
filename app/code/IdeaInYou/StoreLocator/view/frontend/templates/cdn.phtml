@@ -1,0 +1,26 @@
+<?php
+/** @var \IdeaInYou\StoreLocator\Block\Store $block */
+$block->createStoreLocator();
+$collection = $block->getStoreLocatorCollection()->getItems();
+?>
+<style>
+    .mapZoom{
+        cursor: pointer;
+        transition: all .3s;
+    }
+    .mapZoom:hover{
+        background: #707070;
+    }
+    .tableHead{
+        border-bottom: 1px solid black;
+    }
+</style>
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=<?= $block->getApi() ?>&callback=initMap&v=weekly&libraries=places"
+    defer
+></script>
+

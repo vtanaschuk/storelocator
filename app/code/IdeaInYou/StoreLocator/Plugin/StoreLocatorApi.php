@@ -6,7 +6,6 @@ class StoreLocatorApi
 {
     public function beforeSave($subject)
     {
-        var_dump($subject);
-        die();
+        return $subject;
     }
 }

@@ -9,12 +9,14 @@ interface StoreLocatorInterface
     const STORE_NAME = 'storeName';
     const STORE_DESCRIPTION ='description';
     const STORE_COUNTRY = 'country';
-    const STORE_CITY = 'city';
     const STORE_STATE ='state';
+    const STORE_CITY = 'city';
+    const STORE_ADDRESS = 'address';
     const STORE_POST ='post';
     const STORE_LATITUDE = 'latitude';
     const STORE_LONGITUDE = 'longitude';
     const IS_APPROVED = 'is_approved';
+
 
     /**
      * @return mixed
@@ -35,13 +37,17 @@ interface StoreLocatorInterface
 
     public function setStoreCountry($country);
 
+    public function getStoreState();
+
+    public function setStoreState($state);
+
     public function getStoreCity();
 
     public function setStoreCity($city);
 
-    public function getStoreState();
+    public function getStoreAddress();
 
-    public function setStoreState($state);
+    public function setStoreAddress($address);
 
     public function getStorePost();
 

@@ -22,8 +22,7 @@ class Index extends Action implements HttpGetActionInterface
 
     public function execute()
     {
-        var_dump($this->data->getApiKey());
-        die();
+
         return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }
 }

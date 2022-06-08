@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="IdeaInYou\StoreLocator\Block\Store" name="header.block" template="IdeaInYou_StoreLocator::cdn.phtml" cacheable="false" />
+            <block class="IdeaInYou\StoreLocator\Block\Store" name="first.block" template="IdeaInYou_StoreLocator::storesMap.phtml" cacheable="false" />
+            <block class="IdeaInYou\StoreLocator\Block\Store" name="second.block" template="IdeaInYou_StoreLocator::storesTable.phtml" cacheable="false" />
+            <block class="IdeaInYou\StoreLocator\Block\Store" name="third.block" template="IdeaInYou_StoreLocator::storesForm.phtml" cacheable="false" />
+            <block class="IdeaInYou\StoreLocator\Block\Store" name="fourth.block" template="IdeaInYou_StoreLocator::storesScripts.phtml" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>

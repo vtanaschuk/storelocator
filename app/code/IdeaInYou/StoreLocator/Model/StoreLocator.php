@@ -83,9 +83,19 @@ class StoreLocator extends \Magento\Framework\Model\AbstractModel implements Sto
         return $this->setData(self::STORE_STATE, $state);
     }
 
+    public function getStoreAddress()
+    {
+        return parent::getData(self::STORE_ADDRESS);
+    }
+
+    public function setStoreAddress($address): StoreLocator
+    {
+        return $this->setData(self::STORE_ADDRESS, $address);
+    }
+
     public function getStorePost()
     {
-        return parent::getData(self::STORE_CITY);
+        return parent::getData(self::STORE_POST);
     }
 
     public function setStorePost($post): StoreLocator

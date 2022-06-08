@@ -294,7 +294,7 @@ class SimpleProductsFixture extends Fixture
      * Get default attribute sets with attributes.
      *
      * @return array
-     * @see Data/attributeSets.xml
+     * @see config/attributeSets.xml
      */
     private function getDefaultAttributeSets()
     {

@@ -23,8 +23,12 @@
     </type>
 
     <!--    End Grid   -->
-    <type name="IdeaInYou\StoreLocator\Model\StoreLocatorRepository">
-        <plugin name="plugin_ideainyou_storelocator" type="IdeaInYou\StoreLocator\Plugin\StoreLocatorApi"/>
-    </type>
+<!--    <type name="IdeaInYou\StoreLocator\Model\StoreLocatorRepository">-->
+<!--        <plugin name="plugin_ideainyou_storelocator" type="IdeaInYou\StoreLocator\Plugin\StoreLocatorApi"/>-->
+<!--    </type>-->
 
+    <type name="IdeaInYou\StoreLocator\Model\StoreLocatorRepository">
+        <plugin name="StoreLocator"
+                type="IdeaInYou\StoreLocator\Plugin\StoreLocator"/>
+    </type>
 </config>

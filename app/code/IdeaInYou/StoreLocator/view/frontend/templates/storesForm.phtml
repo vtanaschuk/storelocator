@@ -1,0 +1,26 @@
+<?php
+/** @var \IdeaInYou\StoreLocator\Block\Store $block */
+$block->createStoreLocator();
+$collection = $block->getStoreLocatorCollection()->getItems();
+?>
+
+<div class="message-success success message" style="display: none" id="addReviewMessage">
+    <div><?= __('Thank You for Store') ?></div>
+</div>
+<br>
+<input id="searchTextField" type="text" size="50">
+<!--<input id="address" name="address" value='' type="hidden" placeholder="">-->
+<br>
+<form id="storeLocatorForm">
+    <div class="title"><h3><?= __('Set new store') ?></h3></div>
+    <input type="text" id="storeName" placeholder="Store Name" name="storeName">
+    <input type="text" id="description" placeholder="Description" name="description">
+    <input type="text" id="country" placeholder="Country" name="country">
+    <input type="text" id="state" placeholder="State" name="state">
+    <input type="text" id="city" placeholder="City" name="city">
+    <input type="text" id="address" placeholder="Address" name="address">
+    <input type="text" id="post" placeholder="Post" name="post">
+    <button type="submit">Submit</button>
+</form>
+
+

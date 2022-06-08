@@ -120,7 +120,22 @@
                 <dataScope>country</dataScope>
             </settings>
         </field>
-        <field name="city" sortOrder="50" formElement="input">
+        <field name="state" sortOrder="50" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">ideainyou_storelocator</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">State</label>
+                <dataScope>state</dataScope>
+            </settings>
+        </field>
+        <field name="city" sortOrder="60" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">ideainyou_storelocator</item>
@@ -135,7 +150,7 @@
                 <dataScope>city</dataScope>
             </settings>
         </field>
-        <field name="state" sortOrder="60" formElement="input">
+        <field name="address" sortOrder="65" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">ideainyou_storelocator</item>
@@ -146,8 +161,8 @@
                     <rule name="required-entry" xsi:type="boolean">false</rule>
                 </validation>
                 <dataType>text</dataType>
-                <label translate="true">State</label>
-                <dataScope>state</dataScope>
+                <label translate="true">Address</label>
+                <dataScope>address</dataScope>
             </settings>
         </field>
         <field name="post" sortOrder="70" formElement="input">
