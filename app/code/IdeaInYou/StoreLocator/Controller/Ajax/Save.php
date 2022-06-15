@@ -11,6 +11,7 @@ use Magento\Framework\Controller\Result\Json as ResultJson;
 use Magento\Framework\Controller\Result\JsonFactory as ResultJsonFactory;
 use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 
+
 /**
  * Class Save
  */
@@ -32,6 +33,7 @@ class Save implements HttpGetActionInterface
     private Data $data;
     private StoreLocatorFactory $storeLocatorFactory;
     private StoreLocatorRepositoryInterface $storeLocatorRepository;
+
 
     public function __construct(
         JsonSerializer $jsonSerializer,
@@ -72,6 +74,7 @@ class Save implements HttpGetActionInterface
             $data = [
                 'success' => true,
                 'error_message' => '',
+                'data'=>$requestData
             ];
         } catch (\Exception $ex) {
             $data = [

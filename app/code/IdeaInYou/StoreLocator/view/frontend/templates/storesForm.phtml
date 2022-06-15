@@ -13,14 +13,18 @@ $collection = $block->getStoreLocatorCollection()->getItems();
 <br>
 <form id="storeLocatorForm">
     <div class="title"><h3><?= __('Set new store') ?></h3></div>
-    <input type="text" id="storeName" placeholder="Store Name" name="storeName">
+    <input type="text" id="storeName" placeholder="Store Name" name="storeName" required>
     <input type="text" id="description" placeholder="Description" name="description">
     <input type="text" id="country" placeholder="Country" name="country">
     <input type="text" id="state" placeholder="State" name="state">
     <input type="text" id="city" placeholder="City" name="city">
     <input type="text" id="address" placeholder="Address" name="address">
     <input type="text" id="post" placeholder="Post" name="post">
+    <input type="text" id="lat" placeholder="lat" name="lat" hidden>
+    <input type="text" id="lng" placeholder="lng" name="lng" hidden>
     <button type="submit">Submit</button>
 </form>
+
+
 
 

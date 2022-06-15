@@ -6,7 +6,6 @@ $collection = $block->getStoreLocatorCollection()->getItems();
 
 <table id="mapTable">
     <tr class="tableHead">
-        <td>entity_id</td>
         <td>store Name</td>
         <td>description</td>
         <td>country</td>
@@ -20,23 +19,19 @@ $collection = $block->getStoreLocatorCollection()->getItems();
 
 
     <?php foreach ($collection as $item): ?>
-        <tr class="mapZoom"
+        <tr class='mapZoom'
             data-latitude ='<?= $item->getData('latitude'); ?>'
             data-longitude ='<?= $item->getData('longitude'); ?>'
         >
-            <td><?= $item->getData('entity_id'); ?></td>
-            <td><?= $item->getData('storeName'); ?></td>
-            <td><?= $item->getData('description'); ?></td>
-            <td><?= $item->getData('country'); ?></td>
-            <td><?= $item->getData('state'); ?></td>
-            <td><?= $item->getData('city'); ?></td>
-            <td><?= $item->getData('address'); ?></td>
-            <td><?= $item->getData('post'); ?></td>
-            <td><?= $item->getData('latitude'); ?></td>
-            <td><?= $item->getData('longitude'); ?></td>
+            <td class='storeName'><?= $item->getData('storeName'); ?></td>
+            <td class='description'><?= $item->getData('description'); ?></td>
+            <td class='country'><?= $item->getData('country'); ?></td>
+            <td class='country'><?= $item->getData('country'); ?></td>
+            <td class='city'><?= $item->getData('city'); ?></td>
+            <td class='address'><?= $item->getData('address'); ?></td>
+            <td class='post'><?= $item->getData('post'); ?></td>
+            <td class='latitude'><?= $item->getData('latitude'); ?></td>
+            <td class='longitude'><?= $item->getData('longitude'); ?></td>
         </tr>
     <?php endforeach ?>
-
-
-
 </table>
