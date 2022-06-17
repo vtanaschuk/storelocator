@@ -8,12 +8,18 @@ define([
         options: {
             formSelector: '',
             submitUrl: '',
-            messageSelector: ''
+            messageSelector: '',
+            locations: '',
+            mapTitle: '',
+
         },
 
         _create: function () {
             this._super();
             this._bindSubmit();
+            window.initMap = initMap;
+
+
         },
 
         _bindSubmit: function () {
@@ -25,6 +31,7 @@ define([
             let self = this;
             e.preventDefault();
             $.ajax({
+
                 url: this.options.submitUrl,
                 type: 'GET',
                 datatype: 'json',
@@ -38,15 +45,82 @@ define([
                     post : $("#post").val(),
                     lat : $("#lat").val(),
                     lng : $("#lng").val(),
+                    locations : this.options.locations,
+                    mapTitle: this.options.mapTitle
                 },
+
+
 
             }).done(
                 function (data) {
-
-
-
-
+                    console.log(data.data.mapTitle);
                     if (data.success) {
+
+
+                        const map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 9,
+                            center: { lat: +data.data.lat, lng: +data.data.lng },
+                        });
+
+                        const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                        const mapTitle = data.data.mapTitle ;
+
+                        let locationOld = data.data.locations;
+                        let locations = [];
+
+                        for (let i = 0; i<locationOld.length; i++){
+
+                            locations[i]= {
+                                lat: +locationOld[i]['lat'],
+                                lng: +locationOld[i]['lng']
+                            }
+                        }
+
+                        locations[locations.length] = {
+                            lat: +data.data.lat,
+                            lng: +data.data.lng
+                        };
+                        let markers = locations.map((position, i) => {
+                            let label = labels[i % labels.length];
+                            position[lat] = +position[lat];
+                            position[lng] = +position[lng];
+
+
+
+                            let marker = new google.maps.Marker({
+                                position,
+                                map,
+                                // title: mapTitle[i + 1][1] || 0,
+                                // label: mapTitle[i + 1][0] || 0,
+                                optimized: false,
+                            });
+
+                            // markers can only be keyboard focusable when they have click listeners
+                            // open info window when marker is clicked
+                            marker.addListener("click", () => {
+                                infoWindow.close();
+                                infoWindow.setContent(marker.getTitle());
+                                infoWindow.open(marker.getMap(), marker);
+                            });
+
+
+                            return marker;
+                        });
+
+                        // Add a marker clusterer to manage the markers.
+                        const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+
+
+                        $(document).on('click','.mapZoom',function(e){
+                            e.preventDefault();
+                            let ltt = this.getAttribute('data-latitude');
+                            let lnt = this.getAttribute('data-longitude');
+
+                            map.setCenter(new google.maps.LatLng(ltt, lnt));
+
+                            map.setZoom(9);
+                        })
+
 
                         $(self.options.formSelector).hide();
                         $(self.options.messageSelector).show();
@@ -76,7 +150,6 @@ define([
 
                         document.querySelectorAll("#mapTable tbody")[0].appendChild(row);
 
-
                         setTimeout(function () {
                             $(self.options.messageSelector).hide();
                         }, 3000)
@@ -98,4 +171,3 @@ define([
 
     return $.IdeaInYou.storeLocatorForm;
 });
-

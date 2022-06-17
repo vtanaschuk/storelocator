@@ -13,16 +13,13 @@ define([
         },
 
         _create: function () {
-            let mapZoom = document.querySelectorAll('.mapZoom');
-
             let locations = this.options.locations;
 
-            this._initMap(locations,mapZoom);
+            this._initMap(locations);
             window.initMap = initMap;
 
             this._autoAddress();
             google.maps.event.addDomListener(document.getElementById('auto-address'), 'keypress', this._autoAddress);
-
         },
 
 
@@ -83,7 +80,6 @@ define([
 
             // Add some markers to the map.1
 
-
             let markers = locations.map((position, i) => {
                 let label = labels[i % labels.length];
 
@@ -104,10 +100,10 @@ define([
                     infoWindow.setContent(marker.getTitle());
                     infoWindow.open(marker.getMap(), marker);
                 });
+
                 return marker;
             });
-            let markerForm = localStorage.getItem('markerForm');
-            markers.push(markerForm);
+
             // Add a marker clusterer to manage the markers.
             const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
         },

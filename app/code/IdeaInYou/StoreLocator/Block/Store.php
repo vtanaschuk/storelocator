@@ -51,6 +51,7 @@ class Store extends \Magento\Framework\View\Element\Template
 
     protected function _prepareLayout(): Store
     {
+
         $this->pageConfig->getTitle()->set('Store Locator');
         return parent::_prepareLayout();
     }
@@ -73,6 +74,7 @@ class Store extends \Magento\Framework\View\Element\Template
      */
     public function createStoreLocator()
     {
+
         $storeLocator = $this->storeLocatorFactory->create();
 //        $storeLocator
 //            ->setName('Hello')

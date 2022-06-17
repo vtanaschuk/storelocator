@@ -34,17 +34,17 @@ endforeach;
             "storeLocatorForm": {
                 "formSelector": "#storeLocatorForm",
                 "submitUrl": "<?= $block->getUrl('ideaInYou_storeLocator/ajax/save') ?>",
-                "messageSelector": "#addReviewMessage"
+                "messageSelector": "#addReviewMessage",
+                "mapTitle": <?= json_encode($storeArr); ?>,
+                "locations": <?= json_encode($locations) ?>
             }
         }
     }
 </script>
-
 <script type="text/x-magento-init">
     {
         "*": {
         "storeLocatorMap": {
-                "mapMessage": "hello",
                 "mapTitle": <?= json_encode($storeArr); ?>,
                 "locations": <?= json_encode($locations) ?>
             }
